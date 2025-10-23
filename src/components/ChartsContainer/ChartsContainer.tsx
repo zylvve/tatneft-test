@@ -4,6 +4,7 @@ import { getWeatherData } from '../../services/weatherService';
 import { useState } from 'react';
 import WeatherChart from '../WeatherChart/WeatherChart';
 import HoursSlider from '../HoursSlider/HoursSlider';
+import Placeholder from '../Placeholder/Placeholder';
 
 type Location = {
     name: string,
@@ -21,10 +22,11 @@ function ChartsContainer({locations}: ChartsContainerProps) {
     const { isPending, error, data } = useQuery({
         queryKey: ['weather-data'],
         queryFn: getWeatherData,
+        retry: 3,
     })
     
-    if (isPending) return 'Loading'
-    if (error) return error.message;
+    if (isPending) return <Placeholder status='loading'>Загрузка...</Placeholder>
+    if (error) return <Placeholder status='error'>Ошибка получения данных</Placeholder>
 
     return (
         <section className={styles.charts_container}>

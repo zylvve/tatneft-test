@@ -1,0 +1,19 @@
+.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0.5rem;
+    height: 10rem;
+    
+    background-color: white;
+}
+
+.loading {
+    border: 2px solid blue;
+}
+
+.error {
+    border: 2px solid red;
+}
