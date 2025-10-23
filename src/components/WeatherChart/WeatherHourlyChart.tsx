@@ -1,6 +1,7 @@
 import { LineChart } from "@mui/x-charts"
 import { formatFullDate, formatTime } from "../../utils/formatDate";
 import type { WeatherChartProps } from "./WeatherChart";
+import styles from "./WeatherChart.module.css";
 
 type WeatherHourlyChartProps = WeatherChartProps;
 
@@ -10,7 +11,7 @@ function WeatherHourlyChart({name, hours, temperatures, labels, height}: Weather
     const xLabels = currentHour < 23 ? labels.slice(currentHour - 23 - hours, currentHour - 23) : labels.slice(-hours);
     
     return (
-        <div>
+        <div className={styles.container}>
             <h2>{name}</h2>
             <LineChart
                 xAxis={[{ 

@@ -2,6 +2,7 @@ import { LineChart } from "@mui/x-charts"
 import { formatDate, generateAscendingDates } from "../../utils/formatDate";
 import { averageByChunks } from "../../utils/averages";
 import type { WeatherChartProps } from "./WeatherChart";
+import styles from "./WeatherChart.module.css";
 
 type WeatherDailyChartProps = Omit<WeatherChartProps, 'hours'> & { days: number };
 
@@ -11,7 +12,7 @@ function WeatherDailyChart({name, days, temperatures, height}: WeatherDailyChart
     const xLabels = generateAscendingDates(days);
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>{name}</h2>
             <LineChart
                 xAxis={[{ 
