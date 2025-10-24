@@ -14,7 +14,7 @@ export function formatDate(date: Date) {
 }
 
 export function formatFullDate(date: Date) {
-    return `${formatDate(date)} ${formatTime(date)}}`
+    return `${formatDate(date)} ${formatTime(date)}`
 }
 
 export function generateAscendingDates(days: number) {
